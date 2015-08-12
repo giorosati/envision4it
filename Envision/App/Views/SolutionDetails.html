@@ -1,0 +1,146 @@
+﻿<div ng-controller="SolutionDetailsController">
+    <div>
+
+        <h1>
+            {{solutionDetails.SolutionName}}
+            <a ng-href="#/SolutionEdit/{{solutionDetails.SolutionID}}" class=" btn btn-warning">Edit Solution</a>
+        </h1>
+        <div>
+
+            <strong>StartDate: </strong>{{solutionDetails.StartDate | date:'mediumDate'}} <br />
+            <strong>Target Completion Date: </strong>{{solutionDetails.TargetCompletionDate | date:'mediumDate'}}<br />
+            <strong>Urgency: </strong>{{solutionDetails.Urgency}} <br />
+            <hr />
+            <!--hardware & faqs-->
+            <!--adds hardware to the solution-->
+            <a ng-href="#/Hardware/{{solutionDetails.SolutionID}}" class="btn btn-success pull-right">Add Hardware</a>
+            <div ng-hide="solutionDetails.TicketIDVM">
+                <h2>No Hardware for this solution yet</h2>
+            </div>
+            <div ng-show="solutionDetails.TicketIDVM">
+                <h2>Hardware</h2>
+            </div>
+            <div class="table table-responsive">
+                <table class="table table-responsive table-bordered">
+                    <thead>
+                        <tr style="background-color:#f1f1f1">
+                            <th>HardwareID</th>
+                            <th>Name</th>
+                            <th>Notes</th>
+                            <th>Category</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-responsive">
+                        <tr ng-repeat="h in solutionDetails.AdminHardwareVM">
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{h.HardwareID}}</td>
+                            <td ng-if="$even">{{h.HardwareID}}</td>
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{h.HardwareName}}</td>
+                            <td ng-if="$even">{{h.HardwareName}}</td>
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{h.Notes}}</td>
+                            <td ng-if="$even">{{h.Notes}}</td>
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{h.Category}}</td>
+                            <td ng-if="$even">{{h.Category}}</td>
+                            <td><a ng-href="#/EditHardware/{{h.HardwareID}}" class=" btn btn-warning">Edit</a></td>
+                            <td><button class="btn btn-danger" ng-click="DeleteHardware(h.HardwareID)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--faq table-->
+            <!-- <table class="table table-responsive">
+
+                 <tr style="background-color:#f1f1f1">
+                     <th>Delete</th>
+                     <th>Edit</th>
+                     <th>Topic</th>
+                     <th>Questions</th>
+                     <th>Answer</th>
+                 </tr>
+                 <tr ng-repeat="f in solutionDetails.AdminHardwareVM.Faq">
+                     <td>
+                         <button class="btn btn-danger" ng-click="DeleteFaq(f, h)">D</button>
+                     </td>
+                     <td><a ng-href="#/EditFAQ/{{f.FaqID}}" class=" btn btn-warning">E</a></td>
+
+                     <td ng-if="$odd" style="background-color:#f1f1f1">{{f.Topic}}</td>
+                     <td ng-if="$even">{{f.Topic}}</td>
+                     <td ng-if="$odd" style="background-color:#f1f1f1">{{f.Question}}</td>
+                     <td ng-if="$even">{{f.Question}}</td>
+                     <td ng-if="$odd" style="background-color:#f1f1f1">{{f.Answer}}</td>
+                     <td ng-if="$even">{{f.Answer}}</td>
+
+                     <td ng-if="$odd" style=" background-color:#f1f1f1">{{sn.SolutionNoteID}}</td>
+                     <td ng-if="$even">{{sn.SolutionNoteID}}</td>
+                     <td ng-if="$odd" style="background-color:#f1f1f1">{{sn.DateEntered | date:'mediumDate'}}</td>
+                     <td ng-if="$even">{{sn.DateEntered | date:'mediumDate'}}</td>
+                     <td ng-if="$odd" style="background-color:#f1f1f1">{{sn.Note}}</td>
+                     <td ng-if="$even">{{sn.Note}}</td>
+                 </tr>
+             </table>-->
+        </div>
+
+        <!--ticket table-->
+        <div>
+            <div ng-hide="solutionDetails.TicketIDVM">
+                <h2>No Tickets for this solution yet</h2>
+            </div>
+            <a ng-href="#/AddTicket/{{solutionDetails.SolutionID}}" class="btn btn-success pull-right">Add Ticket</a>
+            <div ng-show="solutionDetails.TicketIDVM">
+                <h2>Tickets</h2>
+            </div>
+            <div>
+                <table class="table table-responsive table-bordered">
+                    <thead>
+                        <tr style="background-color:#f1f1f1">
+                            <th>TicketID</th>
+                            <th>Description</th>
+                            <!--<th>User Type</th>-->
+                            <th>Date Opened</th>
+                            <th>Date Closed</th>
+                            <th>Status</th>
+                            <th>Urgency</th>
+                            <th>Type</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-responsive">
+
+                        <tr ng-repeat="t in solutionDetails.TicketIDVM | orderBy : 'DocumentID'">
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.TicketID}}</td>
+                            <td ng-if="$even">{{t.TicketID}}</td>
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Description}}</td>
+                            <td ng-if="$even">{{t.Description}}</td>
+
+                            <!--<td ng-if="$odd" style="background-color:#f1f1f1">{{t.UserID}}</td>
+                            <td ng-if="$even">{{t.UserID}}</td>-->
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.DateOpened | date:'mediumDate'}}</td>
+                            <td ng-if="$even">{{t.DateOpened | date:'mediumDate'}}</td>
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.DateClosed | date:'mediumDate'}}</td>
+                            <td ng-if="$even">{{t.DateClosed | date:'mediumDate'}}</td>
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Status}}</td>
+                            <td ng-if="$even">{{t.Status}}</td>
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Urgency}}</td>
+                            <td ng-if="$even">{{t.Urgency}}</td>
+
+                            <td ng-if="$odd" style="background-color:#f1f1f1">{{t.TicketType}}</td>
+                            <td ng-if="$even">{{t.TicketType}}</td>
+
+                            <td><a class="btn btn-warning" ng-click="TicketDetails(t.TicketID)">Edit</a></td>
+                            <td><a class="btn btn-danger" ng-click="DeleteTicket(t.TicketID)">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

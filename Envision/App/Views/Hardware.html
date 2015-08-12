@@ -1,0 +1,19 @@
+﻿<h3>List of hardware</h3>
+
+<div ng-controller="HardwareController">
+    <label class="text-info pull-right">Search: <input ng-model="search.$" class="form-control" /></label>
+    <div ng-repeat="h in hardware | filter:search">
+        <div>
+            <!--something that lets them know that they have succesfully added to the solution-->
+            <a ng-click="AddToSolution(h.HardwareID)">
+                <h3 class="text-capitalize">{{h.HardwareName}}</h3>
+            </a>
+            <p>
+                Notes: <br /> {{h.Notes}}
+            </p>
+            <div ng-repeat="f in h.Faq">
+                <p>FAQ:  {{f.Topic}}</p>
+            </div>
+        </div>
+    </div>
+</div>

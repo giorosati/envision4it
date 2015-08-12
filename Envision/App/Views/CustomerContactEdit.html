@@ -1,0 +1,37 @@
+﻿<div style="margin-top:40px"><h4>Edit Contact</h4></div>
+
+<div class="form-group well" ng-controller="CustomerContactEditController">
+    <lable for="Name" class="col-lg-2 control-label">
+        Contact Name
+    </lable>
+    <input class="form-control" id="Name" ng-model="contact.Name" />
+    <lable for="Dept" class="col-lg-2 control-label">
+        Department
+    </lable>
+    <input class="form-control" id="Dept" ng-model="contact.Department" />
+    <lable for="Title" class="col-lg-2 control-label">
+        Title
+    </lable>
+    <input class="form-control" id="Title" ng-model="contact.Title" />
+    <lable for="Mobile" class="col-lg-2 control-label">
+        Mobile Number (#s only)
+    </lable>
+    <input class="form-control" id="Mobile" ng-model="contact.MobileNumber" />
+    <lable for="Work" class="col-lg-2 control-label">
+        Work Number (#s only)
+    </lable>
+    <input class="form-control" id="Work" ng-model="contact.WorkNumber" />
+    <lable for="Fax" class="col-lg-2 control-label">
+        Fax Number (#s only)
+    </lable>
+    <input class="form-control" id="Fax" ng-model="contact.FaxNumber" />
+    <lable for="Skype" class="col-lg-2 control-label">
+        Skype Name
+    </lable>
+    <input class="form-control" id="Skype" ng-model="contact.Skype" />
+    <lable for="Email" class="col-lg-2 control-label">
+        Email
+    </lable>
+    <input class="form-control" id="Email" ng-model="contact.Email" />
+    <button ng-click="EditedCustomerContact()">Save Changes</button>
+</div>

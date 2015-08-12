@@ -1,0 +1,63 @@
+﻿<div ng-controller="NewProjectController">
+
+    <div class="form-group well container-fluid" style="padding-top: 30px">
+        <h2>Add A Project</h2>
+        <input class="form-control" ng-model="ProjectID" type="hidden" value="{{project.ProjectID}}" />
+        <lable for="Name" class="col-lg-2 control-label">
+            Project Name
+        </lable>
+        <input type="text" class="form-control" id="Name" placeholder="Project Name" ng-model="project.ProjectName" required>
+
+        <lable for="StartDate" class="col-lg-2 control-label">
+            Start Date
+        </lable>
+        <input type="text" class="form-control" id="StartDate" placeholder="Start Date" ng-model="project.StartDate" required>
+
+        <lable for="TargetDate" class="col-lg-2 control-label">
+            Target Date
+        </lable>
+        <input type="text" class="form-control" id="TargetDate" placeholder="Target Date" ng-model="project.TargetDate" required>
+        <button ng-click="AddSolution()" class="btn btn-success">Add Solution</button>
+    </div>
+    <div class="form-group well container-fluid" ng-repeat="s in project.solutions">
+        <input ng-model="s.SolutionID" type="hidden" value="{{s.SolutionID}}" />
+        <lable for="SName" class="col-lg-2 control-label">
+            Solution Name
+        </lable>
+        <input type="text" class="form-control" id="SName" placeholder="Solution Name" ng-model="s.SolutionName" required>
+        <lable for="SStartDate" class="col-lg-2 control-label">
+            Start Date
+        </lable>
+        <input type="text" class="form-control" id="SStartDate" placeholder="Solution Start Date" ng-model="s.StartDate" required>
+        <lable for="STargetDate" class="col-lg-2 control-label">
+            Solution Target Date
+        </lable>
+        <input type="text" class="form-control" id="STargetDate" placeholder="Solution Target Date" ng-model="s.TargetDate" required>
+
+
+        <!--<lable for="Urgency" type="text" class="col-lg-2 control-label">
+            Urgency
+        </lable>-->
+        
+        <!--<input class="form-control" id="Urgency" placeholder="Urgency" ng-model="s.Urgency" required>-->
+
+
+        <label>Urgency</label><select class="form-control" ng-model="s.Urgency">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High </option>
+            <option value="Priority">Priority</option>
+        </select>
+
+
+    </div>
+
+    <div class="form-group well container" ng-repeat="sn in project.solution.solutionNote">
+        <lable>
+            <input ng-model="project.ProjectID" type="hidden" value="{{sn.SolutionNoteID}}" />
+            Solution Notes<br />
+            <input class="form-control" ng-model="sn.Note" required>
+        </lable>
+        <br />
+    </div><button class="btn btn-success" ng-click="NewProject()">Submit</button>
+</div>

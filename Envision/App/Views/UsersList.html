@@ -1,0 +1,48 @@
+﻿<div ng-controller="UserDetailsController">
+    <br />
+    <h2>Users: </h2>
+    <div ng-repeat="u in UserDetails">
+        <div class="well container-fluid">
+            <strong>Email: </strong>{{u.Email}} <br />
+            <strong>Login Username: </strong>{{u.UserName}} <br />
+            <hr />
+            <strong>Full Name: </strong>{{u.Name}} <br />
+            <strong>Company: </strong>{{u.Company}} <br />
+            <strong>Address1: </strong>{{u.Address1}} <br />
+            <strong>Address2: </strong>{{u.Address2}} <br />
+            <strong>City: </strong>{{u.City}} <br />
+            <strong>Zip: </strong>{{u.State}} <br />
+            <strong>Phone: </strong>{{u.Phone | tel}} <br />
+            <strong>Fax: </strong>{{u.Fax | tel}} <br />
+            <!--<strong>Roles: </strong><span>Need to show authorization roles here</span><br /><br />-->
+            <a ng-href="#/UserDetails/{{u.Id}}" class="btn btn-success">Details</a>
+            <a ng-href="#/UserEdit/{{u.Id}}" class="btn btn-warning">Edit</a>
+            <a ng-href="#/UserDelete/{{c.Id}}" class="btn btn-danger">Delete</a>
+            <br />
+            <hr />
+            <h>Notes on this User: </h>
+            <a ng-href="#/CustomerNoteAdd/{{u.Id}}" class="btn btn-success pull-right">Add Note</a>
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="background-color:#f1f1f1">
+                        <th column-width:20px>Date</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cn in u.CustomerNotes | orderBy : 'DateEntered'">
+
+                        <td column-width:20px ng-if="$odd" style="background-color:#f1f1f1">
+                            <a ng-href="/CustomerNoteDetails/{{cn.CustomerNoteID}}">{{cn.DateEntered | date:'mediumDate'}}</a>
+                        </td>
+
+                        <td column-width:20px ng-if="$even"><a ng-href="/CustomerNoteDetails/{{cn.CustomerNoteID}}">{{cn.DateEntered | date:'mediumDate'}}</a></td>
+
+                        <td ng-if="$odd" style="background-color:#f1f1f1"><a ng-href="/CustomerNoteDetails/{{cn.CustomerNoteID}}">{{cn.Note}}</a></td>
+
+                        <td ng-if="$even"><a ng-href="/CustomerNoteDetails/{{cn.CustomerNoteID}}">{{cn.Note}}</a></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

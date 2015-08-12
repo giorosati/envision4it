@@ -1,0 +1,3 @@
+Some Maybe Usefull Quirks
+finished a set of controller/factory/view/adapter/post call for posting solutions
+addSolutionController/AddSolutionFactory/AddSolution.html/AddSolution(AdminSolutionVM soution, int id)/AddSolution

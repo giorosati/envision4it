@@ -1,0 +1,27 @@
+﻿<div ng-controller="NavbarController">
+    <div>
+        <h2>
+            My Projects
+        </h2>
+        <div class="well container-fluid">
+            <strong>Project:</strong>
+            {{solutionDetails.ProjectName}} <br />
+            <strong>Start Date:</strong>
+            {{solutionDetails.StartDate}} <br />
+            <strong>Target Date:</strong>
+            {{solutionDetails.TargetDate}} <br />
+            <strong>Completion Date:</strong>
+            {{solutionDetails.CompletionDate}} <br />
+            <div ng-repeat="x in solutionDetails.Solutions">
+                <strong>Solution Name:</strong>
+                {{x.SolutionName}} <br />
+                <strong>Start Date:</strong>
+                {{x.StartDate}} <br />
+                <strong>Target Completion Date:</strong>
+                {{x.TargetCompletionDate}} <br />
+                <strong>Urgency:</strong>
+                {{x.Urgency}} <br />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿<div ng-controller="CustomerNoteDetailsController">
+    <div style="padding-top:30px">
+        
+        <div>
+            <strong>Date Entered: </strong>{{CustomerNoteDetails.DateEntered}}<br />
+            <strong>Note: </strong>{{CustomerNoteDetails.Note}}<br />
+            <br />
+            <button ng-click="#/CustomerNoteEdit/{{CustomerNoteDetails.CustomerNoteID}}" class="btn btn-warning">Edit</button>
+            <hr />
+        </div>
+    </div>
+</div>

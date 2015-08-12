@@ -1,0 +1,32 @@
+﻿<div ng-controller="NavbarController">
+    <div>
+        <h2>
+            My Projects
+        </h2>
+        <div class="row">
+            <div class="well container-fluid">
+                <div class="col-md-6">
+                    <h2>{{solutionDetails.ProjectName}} </h2><br />
+                    <strong>Start Date:</strong>
+                    {{solutionDetails.StartDate  | date:'mediumDate'}} <br />
+                    <strong>Target Date:</strong>
+                    {{solutionDetails.TargetDate  | date:'mediumDate'}} <br />
+                    <strong>Completion Date:</strong>
+                    {{solutionDetails.CompletionDate  | date:'mediumDate'}} <br />
+                </div>
+                <h2>Solutions</h2>
+                <div ng-repeat="x in solutionDetails.Solutions" class="col-md-6">
+                    <strong>Solution Name:</strong>
+                    {{x.SolutionName}} <br />
+                    <strong>Start Date:</strong>
+                    {{x.StartDate  | date:'mediumDate'}} <br />
+                    <strong>Target Completion Date:</strong>
+                    {{x.TargetCompletionDate  | date:'mediumDate'}} <br />
+                    <strong>Urgency:</strong>
+                    {{x.Urgency}} <br />
+                    <a ng-href="#/AddTicket/{{x.SolutionID}}" class="btn btn-success pull-right">Add Ticket</a>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>

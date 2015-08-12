@@ -1,0 +1,19 @@
+﻿<br />
+<br />
+
+<div><h4>Add Customer Note</h4></div>
+<div class="form-group" ng-controller="CustomerNoteAddController">
+ 
+    <!--<label for="DateEntered" class="col-md-2 control-label">
+        Date Created
+    </label>
+    <input class="form-control" id="DateEntered" ng-model="customerNote.DateEntered" />-->
+    <label for="Note" class="col-md-2 control-label">
+        Note Text
+    </label>
+    <br/>
+    <textarea class="form-control" rows="15" id="Note" ng-model="customerNote.Note"></textarea>
+    <!--<input class="form-control" id="Note" ng-model="customerNote.Note" />-->
+    <br/>
+    <div><button class="btn btn-success" ng-click="CustomerNoteAdd()">Save Note</button></div>
+</div>

@@ -1,0 +1,19 @@
+﻿<div ng-controller="AddSolutionController">
+
+    <div class="form-group" style="padding-top:20px">
+        <h3>Add Solution</h3>
+        <label>Solution Name</label>
+        <input class="form-control" placeholder="Solution Name" ng-model="solution.SolutionName" />
+        <label>Start Date</label>
+        <input class="form-control" placeholder="Start Date" ng-model="solution.StartDate" />
+        <label>Target Completion Date</label>
+        <input class="form-control" placeholder="Target Completion Date" ng-model="solution.TargerCompletionDate" />
+        <label>Urgency</label><select class="form-control" ng-model="solution.Urgency">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High </option>
+            <option value="Priority">Priority</option>
+        </select>
+        <button ng-click="AddSolution()">Add Solution</button>
+    </div>
+</div>

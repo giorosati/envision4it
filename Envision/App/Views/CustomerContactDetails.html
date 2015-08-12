@@ -1,0 +1,53 @@
+﻿<div ng-controller="CustomerContactDetailsController">
+    <div>
+        <button ng-click="#/CustomerContactEdit/{{c.CustomerContactID}}" class="btn btn-warning">Edit</button>
+        <div>
+            Id: {{c.CustomerContactID}}
+            Name: {{c.Name}}
+            Department: {{c.Department}}
+            Title: {{c.Title}}
+            Mobile: {{c.MobileNumber | tel}}
+            Work: {{c.WorkNumber | tel}}
+            Fax: {{c.FaxNumber | tel}}
+            Skype: {{c.Skype}}
+            Email: {{c.Email}}
+            Attached to CustomerID: {{contact.UserID}}
+            <hr />
+        </div>
+    </div>
+    <!--notes table-->
+    <div>
+
+        <h2>Customer Notes</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr style="background-color:#f1f1f1">
+                    <th>NoteID</th>
+                    <th>Date Entered</th>
+                    <th>Note</th>
+                    <th>Details/Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="cn in CustomerContactDetails.CustomerNoteIDVM | orderBy : 'CustomerNoteID'">
+
+                    <td ng-click="CustomerNote(cn.CustomerNoteID)" ng-if=" $odd" style="background-color:#f1f1f1">{{cn.CustomerNoteID}}</td>
+                    <td ng-if="$even">{{cn.CustomerNoteID}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{cn.DateEntered | date:'mediumDate'}}</td>
+                    <td ng-if="$even">{{cn.DateEntered | date:'mediumDate'}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{cn.Note}}</td>
+                    <td ng-if="$even">{{cn.Note}}</td>
+
+                    <td>
+                        <a class="btn btn-success" ng-click="CustomerNoteDetails(cn.CustomerNoteID)">View Details</a>
+                        <a class="btn btn-warning" ng-click="CustomerNoteEdit(cn.CustomerNoteID)">Edit</a>
+                        <a class="btn btn-danger" ng-click="CustomerNoteDelete(cn.CustomerNoteID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

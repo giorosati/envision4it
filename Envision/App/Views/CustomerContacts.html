@@ -1,0 +1,45 @@
+﻿<div ng-controller="CustomerContactDetailsController">
+    <br />
+    <br />
+    <div class="container-fluid" style="border:3px solid SlateGray; width:auto;">
+        <h3><strong>Admin Management Console</strong></h3>
+        <div class="row" style="padding:10px;">
+            <a ng-href="#/ProjectsAll" class="btn btn-default">Projects & Solutions</a>
+
+            <a ng-href="#/AllHardware" class="btn btn-default">Hardware</a>
+
+            <a ng-href="#/AllTickets" class="btn btn-default">Tickets</a>
+
+            <a ng-href="#/AllFAQs" class="btn btn-default">FAQ's</a>
+
+            <a ng-href="#/CustomerContacts" class="btn btn-default">Customer Contacts</a>
+
+            <a ng-href="#/UsersList/" class="btn btn-default">Users</a>
+        </div>
+    </div>
+    <hr />
+    <h2>
+        <span>
+            Customer Contacts
+            <a ng-href="#/CustomerContactAdd" class="btn btn-success pull-right">Add Contact</a>
+        </span>
+    </h2>
+    <div ng-repeat="c in CustomerContactDetails">
+        <div class="well container-fluid">
+            <strong>Id: </strong>{{c.CustomerContactID}} <br />
+            <strong>Name:  </strong>{{c.Name}} <br />
+            <strong>Department: </strong>{{c.Department}} <br />
+            <strong>Title: </strong>{{c.Title}} <br />
+            <strong>Mobile: </strong>{{c.MobileNumber | tel}} <br />
+            <strong>Work: </strong>{{c.WorkNumber | tel}} <br />
+            <strong>Fax: </strong>{{c.FaxNumber | tel}} <br />
+            <strong>Skype: </strong>{{c.Skype}} <br />
+            <strong>Email: </strong>{{c.Email}} <br />
+            <br />
+            <a ng-href="#/CustomerContactEdit/{{c.CustomerContactID}}" class="btn btn-warning">Edit</a>
+            <a ng-href="#/CustomerContactDelete/{{c.CustomerContactID}}" class="btn btn-danger">Delete</a>
+            <br />
+        </div>
+    </div>
+</div>
+</div>

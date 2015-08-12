@@ -1,0 +1,31 @@
+﻿<div style="padding-top:50px"><h4>Edit Ticket</h4></div>
+<!--put real id in not :id-->
+<div class="form-group" ng-controller="EditTicketController">
+    <label>Description</label>
+    <input class="form-control" ng-model="ticket.Description" />
+    <label>Date Opened</label>
+    <input class="form-control" ng-model="ticket.DateOpened" />
+    <label>Date Closed</label>
+    <input class="form-control" ng-model="ticket.DateClosed" />
+    <label>Status</label>
+    <select class="form-control" ng-model="ticket.Status">
+        <option value="Unassigned">New</option>
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Complete">Complete</option>   
+    </select>
+    <label>Urgency</label>
+    <select class="form-control" ng-model="ticket.Urgency">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Urgent">Urgent</option>
+    </select>
+    <label>Type</label>
+    <select class="form-control" ng-model="ticket.TicketType">
+        <option value="Trouble Ticket">Trouble Ticket</option>
+        <option value="New Install">New Install</option>
+        <option value="Other">Other</option>
+    </select>
+    <button class="btn btn-success" ng-click="SaveEdit()">Save</button>
+</div>

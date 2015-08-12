@@ -1,0 +1,48 @@
+﻿<div ng-controller="RegistrationController">
+    <div class="row"><div class="container well col-lg-5 col-md-6 col-sm-9 col-xs-12" id="inner">
+        <h2>Register</h2>
+        <ul>Customers Can...
+            <li>Create Trouble Tickets</li>
+        <li>Get Help Troubleshooting Their Solutions</li>
+        <li>And More!!!!</li>
+        </ul>
+</div>
+        <div class="container well col-lg-5 col-md-6 col-sm-9 col-xs-12">
+            <ul class="input-list style-1 clearfix">
+                <li>
+                    <label>Email</label><input class="form-control" type="text" ng-model="user.Email">
+            </li>
+            <li>
+                <label>Name</label><input class="form-control" type="text" ng-model="user.Name">
+            </li>
+            <li>
+                <label>Address 1</label><input class="form-control" type="text" ng-model="user.Address1">
+            </li>
+            <li>
+                <label>Address 2</label><input class="form-control" type="text" ng-model="user.Address2">
+            </li>
+            <li>
+                <label>City</label><input class="form-control" type="text" ng-model="user.City">
+            </li>
+            <li >
+                <label>Company</label><input class="form-control" type="text" ng-model="user.Company">
+            </li>
+            <li >
+                <label>Phone Number</label><input class="form-control" type="text" ng-model="user.Phone">
+            </li>
+            <li>
+                <label>Fax</label><input class="form-control" type="text" ng-model="user.Fax">
+            </li>
+            <li>
+                <label>Password</label><input class="form-control" type="password" ng-model="user.Password">
+            </li>
+            <li>
+                <label>Confirm Password</label><input class="form-control" type="password" ng-model="user.ConfirmPassword">
+            </li>
+            
+            </ul>
+            <button ng-click="register()" class="btn btn-success">Submit</button>
+
+        </div>
+    </div>
+</div>

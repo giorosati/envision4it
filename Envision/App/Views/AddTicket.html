@@ -1,0 +1,27 @@
+﻿<div ng-controller="AddTicketController">
+    <h1>Add TIcket Page</h1>
+    <div class="form-group">
+        <label>Date Opened</label><input class="form-control" placeholder="Date Opened" ng-model="ticket.DateOpened" />
+        <label>Date Closed</label> <input class="form-control" placeholder="Date Closed" ng-model="ticket.DateClosed" />
+        <label>Status</label> <select class="form-control" ng-model="ticket.Status">
+            <option value="Complete">complete</option>
+            <option value="On Going">On Going </option>
+            <option value="Unassigned">unassigned </option>
+            <option value="Assigned">assigned </option>
+            <option value="In Progress">In Progress </option>
+            <option value="Pending">Pending </option>
+        </select>
+        <label>Urgency</label><select class="form-control" ng-model="ticket.Urgency">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High </option>
+            <option value="Priority">Priority</option>
+        </select>
+        <label>Type</label><select class="form-control" ng-model="ticket.TicketType">
+            <option value="Trouble Ticket">Trouble Ticket</option>
+            <option value="New Install">New Install</option>
+            <option value="Unassigned">Unassigned </option>
+        </select>
+        <button class="btn btn-success" ng-click="AddTicket()">Add Ticket</button>
+    </div>
+</div>
