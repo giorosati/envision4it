@@ -24,9 +24,17 @@ namespace Envision.Controllers
             _adapter = a;
         }
 
+
         public IHttpActionResult Get(int id)
         {
             AdminTicketVM model = _adapter.GetTicket(id);
+            return Ok(model);
+        }
+
+        //get all tickets
+        public IHttpActionResult Get()
+        {
+            List<AdminTicketVM> model = _adapter.GetTickets();
             return Ok(model);
         }
 

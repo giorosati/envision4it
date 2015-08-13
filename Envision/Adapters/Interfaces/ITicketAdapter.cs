@@ -8,8 +8,8 @@ namespace Envision.Adapters.Interfaces
 {
     public interface ITicketAdapter
     {
+        List<AdminTicketVM> GetTickets();
         AdminTicketVM GetTicket(int id);
-
         void EditTicket(AdminTicketVM editedTicket, int id);
 
         void newTicket(AdminTicketVM newTicket, int id);

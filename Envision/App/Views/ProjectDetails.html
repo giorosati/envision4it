@@ -16,7 +16,7 @@
         <h3>Solutions for This Project<a href="#/AddSolution/{{Project.ProjectID}}" class="btn btn-success pull-right">Add Solution</a></h3>
         <hr />
         <div ng-repeat="s in Project.Solutions | orderBy : 'StartDate'">
-            <strong>Solution: </strong>{{s.SolutionName}}<br />
+           <a ng-href="#/SolutionDetails/{{s.SolutionID}}"><h3>{{s.SolutionName}}</h3></a>
             <strong>Start Date: </strong>{{s.StartDate | date:'mediumDate'}}<br />
             <strong>Target Completion Date: </strong>{{s.TargetCompletionDate | date:'mediumDate'}}<br />
             <strong>Urgency: </strong>{{s.Urgency}}

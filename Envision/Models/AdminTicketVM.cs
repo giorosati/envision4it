@@ -14,6 +14,7 @@ namespace Envision.Models
         public int TicketID { get; set; }
 
         public int SolutionID { get; set; }
+        public virtual AdminSolutionVM Solution { get; set; }
 
         public string Description { get; set; }
 

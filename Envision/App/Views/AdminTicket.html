@@ -1,0 +1,90 @@
+﻿<div ng-controller="AdminTicketController">
+    <br />
+    <div class="container-fluid" style="border:3px solid SlateGray; width:auto;">
+        <h3><strong>Admin Management Console</strong></h3>
+        <div class="row" style="padding:10px;">
+            <a ng-href="#/ProjectsAll" class="btn btn-default">Projects & Solutions</a>
+
+            <a ng-href="#/AllHardware" class="btn btn-default">Hardware</a>
+
+            <a ng-href="#/AllTickets" class="btn btn-default">Tickets</a>
+
+            <a ng-href="#/AllFAQs" class="btn btn-default">FAQ's</a>
+
+            <a ng-href="#/CustomerContacts" class="btn btn-default">Customer Contacts</a>
+
+            <a ng-href="#/UsersList/" class="btn btn-default">Users</a>
+        </div>
+    </div>
+    <hr />
+    <div style="padding-bottom:15px;">
+        <h2>All Tickets</h2>
+        <div style="display: inline-block;">
+            <a ng-href="#/AddTicket" class="btn btn-primary">Add Ticket</a>
+        </div>
+        <div style="display: inline-block;" class="pull-right">
+            <label class="text-info" style="font-size:large">Search: </label>
+            <div style="display: inline-block;" class="pull-right">
+                <input ng-model="search.$" class="form-control" style="width:400px;" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <table class="table table-responsive table-bordered">
+            <thead>
+                <tr style="background-color:#f1f1f1">
+                    <th>TicketID</th>
+                    <th>User</th>
+                    <th>Description</th>
+                    <th>Project</th>
+                    <th>Solution</th>
+                    <th>Date Opened</th>
+                    <th>Date Closed</th>
+                    <th>Status</th>
+                    <th>Urgency</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody class="table-responsive">
+                <tr ng-repeat="t in tickets | filter:search">
+                    <td ng-if="$odd" style="background-color:#f1f1f1">
+                        <a ng-href="#/TicketEdit/{{t.TicketID}}">{{t.TicketID}}</a>
+                    </td>
+                    <td ng-if="$even"><a ng-href="#/TicketEdit/{{t.TicketID}}">{{t.TicketID}}</a></td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.UserID}} </td>
+                    <td ng-if="$even">{{t.UserID}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1"><a ng-href="#/TicketEdit/{{t.TicketID}}">{{t.Description}}</a></td>
+                    <td ng-if="$even"><a ng-href="#/TicketEdit/{{t.TicketID}}">{{t.Description}} </a></td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Solution.Project.ProjectName}}</td>
+                    <td ng-if="$even">{{t.Solution.Project.ProjectName}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Solution.SolutionName}}</td>
+                    <td ng-if="$even">{{t.Solution.SolutionName}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.DateOpened | date:'mediumDate'}} </td>
+                    <td ng-if="$even">{{t.DateOpened | date:'mediumDate'}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.DateClosed | date:'mediumDate'}} </td>
+                    <td ng-if="$even">{{t.DateClosed | date:'mediumDate'}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Status}} </td>
+                    <td ng-if="$even">{{t.Status}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.Urgency}} </td>
+                    <td ng-if="$even">{{t.Urgency}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{t.TicketType}} </td>
+                    <td ng-if="$even">{{t.TicketType}}</td>
+
+                    <!--move this to a link on the ticket description-->
+                    <!--<td><a class="btn btn-warning" ng-click="TicketDetails(t.TicketID)">Edit</a></td>-->
+                </tr>
+            </tbody>
+        </table>
+        <div>
+        </div>
+    </div>
+</div>

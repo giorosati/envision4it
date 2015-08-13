@@ -58,10 +58,13 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         templateUrl: 'App/Views/EditFAQ.html'
     }).when('/EditHardware/:id', {
         templateUrl: 'App/Views/AddHardware.html'
+        // ticket routing
     }).when('/TicketEdit/:id', {
         templateUrl: 'App/Views/TicketEdit.html'
     }).when('/AddTicket/:id', {
         templateUrl: 'App/Views/AddTicket.html'
+    }).when('/AllTickets', {
+        templateUrl: 'App/Views/AdminTicket.html'
         // user routing
     }).when('/UsersList/', {
         templateUrl: 'App/Views/UsersList.html'

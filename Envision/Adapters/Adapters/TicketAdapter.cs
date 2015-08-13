@@ -11,6 +11,40 @@ namespace Envision.Adapters.Adapters
 {
     public class TicketAdapter : ITicketAdapter
     {
+        public List<AdminTicketVM> GetTickets()
+        {
+            List<AdminTicketVM> model;
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                model = db.Tickets.Where(x => x.DateDeleted == null).OrderByDescending(x => x.DateOpened).Select(x => new AdminTicketVM()
+                {
+                    TicketID = x.TicketID,
+                    SolutionID = x.SolutionID,
+                    Solution = db.Solutions.Where(s => s.SolutionID == x.SolutionID).Select(s => new AdminSolutionVM()
+                    {
+                        StartDate = s.StartDate,
+                        SolutionName = s.SolutionName,
+                        ProjectID = s.ProjectID,
+                        Project = db.Projects.Where(p => p.ProjectID == s.ProjectID).Select(p => new ProjectVM()
+                        {
+                            ProjectID = p.ProjectID,
+                            ProjectName = p.ProjectName
+                        }).FirstOrDefault(),
+                    }).FirstOrDefault(),
+                    Description = x.Description,
+                    UserID = x.UserID,
+                    User = x.User,
+                    DateOpened = x.DateOpened,
+                    DateClosed = x.DateClosed,
+                    DateDeleted = x.DateDeleted,
+                    Status = x.Status,
+                    Urgency = x.Urgency,
+                    TicketType = x.TicketType
+                }).ToList();
+            }
+            return model;
+        }
+
         public AdminTicketVM GetTicket(int id)
         {
             AdminTicketVM model;

@@ -14,6 +14,7 @@ namespace Envision.Models
         public string SolutionName { get; set; }
 
         public int ProjectID { get; set; }
+        public virtual ProjectVM Project { get; set; }
 
         public DateTime StartDate { get; set; }
 
