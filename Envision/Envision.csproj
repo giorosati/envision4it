@@ -367,6 +367,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\envision_logo_4in.jpg" />
+    <Content Include="Images\envision_logo_640px.jpg" />
     <Content Include="Pics\house.jpg" />
     <Content Include="Pics\house2.jpg" />
     <Content Include="Pics\house3.jpg" />
