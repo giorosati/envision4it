@@ -24,7 +24,7 @@ namespace Envision
             bundles.Add(new StyleBundle("~/Content/css").Include(
                        "~/Content/bootstrap.css",
                        "~/Content/bootswatch.css",
-                  "~/Content/site.css"));
+                       "~/Content/Site.css"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js"));
