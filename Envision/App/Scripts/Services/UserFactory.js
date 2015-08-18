@@ -19,6 +19,31 @@
         else { return false }
     };
 
+    // new section start
+    o.isLoggedIn = function () {
+        if (o.getToken() !== null)
+        {
+            o.isLoggedIn = true;
+            return true;
+        }
+        else {
+            o.isLoggedIn = false;
+            return false;
+        }
+    };
+
+    o.isLoggedOut = function () {
+        if (o.getToken() == null) {
+            o.isLoggedOut = true;
+            return true;
+        }
+        else {
+            o.isLoggedOut = false;
+            return false;
+        }
+    };
+    // new section end
+
     o.getRoles = function () {
         var q = $q.defer();
         $http.get('/api/apiRoles').success(function (data) {

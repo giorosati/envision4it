@@ -1,0 +1,71 @@
+﻿<div ng-controller="AdminFAQController">
+    <br />
+    <div class="container-fluid" style="border:3px solid SlateGray; width:auto;">
+        <h3><strong>Admin Management Console</strong></h3>
+        <div class="row" style="padding:10px;">
+            <a ng-href="#/ProjectsAll" class="btn btn-default">Projects & Solutions</a>
+
+            <a ng-href="#/AllHardware" class="btn btn-default">Hardware</a>
+
+            <a ng-href="#/AllTickets" class="btn btn-default">Tickets</a>
+
+            <a ng-href="#/AllFAQs" class="btn btn-default">FAQ's</a>
+
+            <a ng-href="#/CustomerContacts" class="btn btn-default">Customer Contacts</a>
+
+            <a ng-href="#/UsersList/" class="btn btn-default">Users</a>
+        </div>
+    </div>
+    <hr />
+    <div style="padding-bottom:15px;">
+        <h2>All FAQ's</h2>
+        <div style="display: inline-block;">
+            <a ng-href="#/AddFAQ" class="btn btn-primary">Add FAQ</a>
+        </div>
+        <div style="display: inline-block;" class="pull-right">
+            <label class="text-info" style="font-size:large">Search: </label>
+            <div style="display: inline-block;" class="pull-right">
+                <input ng-model="search.$" class="form-control" style="width:400px;" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <table class="table table-responsive table-bordered">
+            <thead>
+                <tr style="background-color:#f1f1f1">
+                    <th>FaqID</th>
+                    <th>HardwareID</th>
+                    <th>HardwareName</th>
+                    <th>Topic</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+            </thead>
+            <tbody class="table-responsive">
+                <tr ng-repeat="f in FAQs | filter:search">
+                    <td ng-if="$odd" style="background-color:#f1f1f1">
+                        <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.FaqID}}</a>
+                    </td>
+                    <td ng-if="$even"><a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.FaqID}}</a></td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{f.HardwareID}} </td>
+                    <td ng-if="$even">{{f.HardwareID}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{f.Hardware.HardwareName}} </td>
+                    <td ng-if="$even">{{f.Hardware.HardwareName}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1"><a ng-href="#/TicketEdit/{{f.Topic}}">{{f.Topic}}</a></td>
+                    <td ng-if="$even"><a ng-href="#/TicketEdit/{{f.Topic}}">{{f.Topic}} </a></td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{tf.Question}}</td>
+                    <td ng-if="$even">{{F.Question}}</td>
+
+                    <td ng-if="$odd" style="background-color:#f1f1f1">{{f.Answer}}</td>
+                    <td ng-if="$even">{{f.Answer}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+        </div>
+    </div>
+</div>

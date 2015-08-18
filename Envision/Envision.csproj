@@ -178,6 +178,7 @@
     <Compile Include="Adapters\Adapters\AdminAdapter.cs" />
     <Compile Include="Adapters\Adapters\HardwareAdapter.cs" />
     <Compile Include="Adapters\Adapters\ProjectAdapter.cs" />
+    <Compile Include="Adapters\Adapters\FAQAdapter.cs" />
     <Compile Include="Adapters\Adapters\UserDetailsAdapter.cs" />
     <Compile Include="Adapters\Adapters\CustomerContactAdapter.cs" />
     <Compile Include="Adapters\Adapters\CustomerNoteAdapter.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Adapters\Interfaces\IAdminAdapter.cs" />
     <Compile Include="Adapters\Interfaces\IHardwareAdapter.cs" />
     <Compile Include="Adapters\Interfaces\IProjectAdapter.cs" />
+    <Compile Include="Adapters\Interfaces\IFAQAdapter.cs" />
     <Compile Include="Adapters\Interfaces\IUserDetailsAdapter.cs" />
     <Compile Include="Adapters\Interfaces\ICustomerContactAdapter.cs" />
     <Compile Include="Adapters\Interfaces\ICustomerNoteAdapter.cs" />
@@ -235,6 +237,7 @@
     <Compile Include="Controllers\apiAdminHardwareController.cs" />
     <Compile Include="Controllers\apiProjectDeleteController.cs" />
     <Compile Include="Controllers\apiProjectDetailsController.cs" />
+    <Compile Include="Controllers\apiFAQController.cs" />
     <Compile Include="Controllers\apiUserDetailsController.cs" />
     <Compile Include="Controllers\apiCustomerContactController.cs" />
     <Compile Include="Controllers\apiDelFAQController.cs" />
@@ -285,6 +288,7 @@
     <Content Include="App\Scripts\Controllers\AddSolutionController.js" />
     <Content Include="App\Scripts\Controllers\AddTicketController.js" />
     <Content Include="App\Scripts\Controllers\AdminController.js" />
+    <Content Include="App\Scripts\Controllers\AdminFAQController.js" />
     <Content Include="App\Scripts\Controllers\AdminTicketController.js" />
     <Content Include="App\Scripts\Controllers\CustController.js" />
     <Content Include="App\Scripts\Controllers\CustomerNoteDetailsController.js" />
@@ -310,6 +314,7 @@
     <Content Include="App\Scripts\Services\AddSolutionFactory.js" />
     <Content Include="App\Scripts\Services\AddTicketFactory.js" />
     <Content Include="App\Scripts\Services\AdminFactory.js" />
+    <Content Include="App\Scripts\Services\AdminFAQFactory.js" />
     <Content Include="App\Scripts\Services\AdminTicketFactory.js" />
     <Content Include="App\Scripts\Services\AdminHardwareFactory.js" />
     <Content Include="App\Scripts\Services\AuthFactory.js" />
@@ -333,6 +338,7 @@
     <Content Include="App\Views\AddProject.html" />
     <Content Include="App\Views\AddSolution.html" />
     <Content Include="App\Views\AddTicket.html" />
+    <Content Include="App\Views\AdminFAQ.html" />
     <Content Include="App\Views\AdminTicket.html" />
     <Content Include="App\Views\AdminHardware.html" />
     <Content Include="App\Views\AdminHome.html" />
