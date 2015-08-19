@@ -18,13 +18,27 @@
         </div>
     </div>
     <hr />
-    <h2>
+    <!--<h2>
         <span>
             Customer Contacts
             <a ng-href="#/CustomerContactAdd" class="btn btn-success pull-right">Add Contact</a>
         </span>
-    </h2>
-    <div ng-repeat="c in CustomerContactDetails">
+    </h2>-->
+
+    <div style="padding-bottom:15px;">
+        <h2>Customer Contact's</h2>
+        <div style="display: inline-block;">
+            <a ng-href="#/CustomerContactAdd" class="btn btn-primary">Add a Contact</a>
+        </div>
+        <div style="display: inline-block;" class="pull-right">
+            <label class="text-info" style="font-size:large">Search: </label>
+            <div style="display: inline-block;" class="pull-right">
+                <input ng-model="search.$" class="form-control" style="width:400px;" />
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="c in CustomerContactDetails | filter:search">
         <div class="well container-fluid">
             <strong>Id: </strong>{{c.CustomerContactID}} <br />
             <strong>Name:  </strong>{{c.Name}} <br />

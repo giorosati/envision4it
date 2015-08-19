@@ -17,8 +17,22 @@
         </div>
     </div>
     <hr />
-    <h2>Users: </h2>
-    <div ng-repeat="u in UserDetails">
+    <!--<h2>Users: </h2>-->
+
+    <div style="padding-bottom:15px;">
+        <h2>All Users</h2>
+        <div style="display: inline-block;">
+            <a ng-href="#/AddUser" class="btn btn-primary">Add User</a>
+        </div>
+        <div style="display: inline-block;" class="pull-right">
+            <label class="text-info" style="font-size:large">Search: </label>
+            <div style="display: inline-block;" class="pull-right">
+                <input ng-model="search.$" class="form-control" style="width:400px;" />
+            </div>
+        </div>
+    </div>
+
+    <div ng-repeat="u in UserDetails | filter:search">
         <div class="well container-fluid">
             <strong>Email: </strong>{{u.Email}} <br />
             <strong>Login Username: </strong>{{u.UserName}} <br />
