@@ -20,6 +20,9 @@ namespace Envision.Adapters.Adapters
                 {
                     FaqID = x.FaqID,
                     HardwareID = x.HardwareID,
+                    Topic = x.Topic,
+                    Question = x.Question,
+                    Answer = x.Answer,
                     Hardware = db.Hardware.Where(h => h.HardwareID == x.HardwareID).Select(h => new AdminHardwareVM()
                     {
                         HardwareID = h.HardwareID,
@@ -42,6 +45,8 @@ namespace Envision.Adapters.Adapters
                 {
                     FaqID = x.FaqID,
                     HardwareID = x.HardwareID,
+                    Question = x.Question,
+                    Answer = x.Answer,
                     Hardware = db.Hardware.Where(h => h.HardwareID == x.HardwareID).Select(h => new AdminHardwareVM()
                     {
                         HardwareID = h.HardwareID,
@@ -51,8 +56,6 @@ namespace Envision.Adapters.Adapters
                         DateDeleted = h.DateDeleted
                     }).FirstOrDefault(),
                     Topic = x.Topic,
-                    Question = x.Question,
-                    Answer = x.Answer,
                     DateDeleted = x.DateDeleted
                 }).FirstOrDefault();
             }
