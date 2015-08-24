@@ -23,7 +23,7 @@
         <h2>All Hardware</h2>
         <div style="display: inline-block;">
             <a ng-href="#/NewHardware" class="btn btn-primary">Add Hardware</a>
-            </div>
+        </div>
         <div style="display: inline-block;" class="pull-right">
             <label class="text-info" style="font-size:large">Search: </label>
             <div style="display: inline-block;" class="pull-right">
@@ -34,9 +34,9 @@
 
     <div ng-repeat="h in hardware | filter:search">
         <div class="well container-fluid">
-            <div><h3><strong>Hardware: </strong><a ng-click="HardwareEdit(h.HardwareID)">{{h.HardwareName}}</a></h3></div>
-            <div><h3><strong>Category: </strong>{{h.Category}}</h3></div>
-            <div><h3><strong>Notes: </strong><br /> {{h.Notes}}</h3></div>
+            <div><h4><strong>Hardware: </strong><a ng-click="HardwareEdit(h.HardwareID)">{{h.HardwareName}}</a></h4></div>
+            <div><h4><strong>Category: </strong>{{h.Category}}</h4></div>
+            <div><h4><strong>Notes: </strong><br /> {{h.Notes}}</h4></div>
         </div>
     </div>
 </div>

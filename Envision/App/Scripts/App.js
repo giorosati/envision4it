@@ -52,6 +52,7 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         //hardware routing
     }).when('/NewHardware/', {
         templateUrl: 'App/Views/AddHardware.html'
+        //FAQ routing
     }).when('/AllFAQs', {
         templateUrl: 'App/Views/AdminFAQ.html'
     }).when('/AddFAQ/', {
