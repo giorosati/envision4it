@@ -34,7 +34,7 @@
 
     <div ng-repeat="h in hardware | filter:search">
         <div class="well container-fluid">
-            <div><strong>Hardware: </strong><a ng-click="HardwareEdit(h.HardwareID)">{{h.HardwareName}}</a></div>
+            <div><strong>Hardware: </strong><a ng-click="HardwareEdit({{h.HardwareID}})">{{h.HardwareName}}</a></div>
             <div><strong>Category: </strong>{{h.Category}}</div>
             <div><strong>Notes: </strong><br /> {{h.Notes}}</div>
         </div>

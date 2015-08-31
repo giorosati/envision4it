@@ -52,6 +52,12 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         //hardware routing
     }).when('/NewHardware/', {
         templateUrl: 'App/Views/AddHardware.html'
+    }).when('/Hardware/:id', {
+        templateUrl: 'App/Views/Hardware.html',
+    }).when('HardwareEdit/:id',{
+        templateUrl:'App/Views/EditHardware.html'),
+    }).when('/EditHardware/:id', {
+        templateUrl: 'App/Views/HardwareEdit.html'
         //FAQ routing
     }).when('/AllFAQs', {
         templateUrl: 'App/Views/AdminFAQ.html'
@@ -71,12 +77,8 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         // user routing
     }).when('/UsersList/', {
         templateUrl: 'App/Views/UsersList.html'
-    }).when('/Hardware/:id', {
-        templateUrl: 'App/Views/Hardware.html'
     }).when('/Customer', {
         tempateUrl: 'App/Views/Customer.html'
-    }).when('/EditHardware/:id', {
-        templateUrl: 'App/Views/HardwareEdit.html'
     }).when('/Registration/', {
         templateUrl: 'App/Views/Registration.html'
         //tech login route
@@ -88,5 +90,5 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         // catch-all route
     }).otherwise({ redirectTo: '/' });
 
-    $httpProvider.interceptors.push('AuthFactory');
+$httpProvider.interceptors.push('AuthFactory');
 }]);
