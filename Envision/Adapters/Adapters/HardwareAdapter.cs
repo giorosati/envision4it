@@ -32,6 +32,12 @@ namespace Envision.Adapters.Adapters
                         Question = f.Question,
                         Answer = f.Answer
                     }).ToList(),
+                    Document = x.Document.Select(d => new AdminDocumentVM()
+                    {
+                        DocumentID = d.DocumentID,
+                        Name = d.Name,
+                        Description = d.Description
+                    }).ToList(),
                 }).ToList();
             }
             return model;
