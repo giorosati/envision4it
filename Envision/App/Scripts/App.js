@@ -54,10 +54,10 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         templateUrl: 'App/Views/AddHardware.html'
     }).when('/Hardware/:id', {
         templateUrl: 'App/Views/Hardware.html',
-    }).when('HardwareEdit/:id',{
-        templateUrl:'App/Views/EditHardware.html'),
     }).when('/EditHardware/:id', {
-        templateUrl: 'App/Views/HardwareEdit.html'
+        templateUrl: 'App/Views/EditHardware.html',
+    }).when('/EditHardware/:id', {
+        templateUrl: 'App/Views/AddHardware.html',
         //FAQ routing
     }).when('/AllFAQs', {
         templateUrl: 'App/Views/AdminFAQ.html'
@@ -65,8 +65,6 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         templateUrl: 'App/Views/AddFAQ.html'
     }).when('/EditFAQ/:id', {
         templateUrl: 'App/Views/EditFAQ.html'
-    }).when('/EditHardware/:id', {
-        templateUrl: 'App/Views/AddHardware.html'
         // ticket routing
     }).when('/TicketEdit/:id', {
         templateUrl: 'App/Views/TicketEdit.html'
@@ -90,5 +88,5 @@ app.config(["$routeProvider", '$httpProvider', function ($routeProvider, $httpPr
         // catch-all route
     }).otherwise({ redirectTo: '/' });
 
-$httpProvider.interceptors.push('AuthFactory');
+    $httpProvider.interceptors.push('AuthFactory');
 }]);

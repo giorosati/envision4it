@@ -1,9 +1,12 @@
-﻿<div><h4>Solution Edit</h4></div>
+﻿<div><h4>Hardware Edit</h4></div>
 
-<div class="form-group" ng-controller="SolutiontEditController">
-    <input class="form-control" ng-model="solution.SolutionName" />
-    <input class="form-control" ng-model="solution.StartDate" />
-    <input class="form-control" ng-model="solution.TargetCompletionDate" />
-    <input class="form-control" ng-model="solution.Urgency" />
-    <button ng-click="EditedSolution()">Save Changes</button>
+<div class="form-group" ng-controller="HardwareEditController">
+    <input class=" form-control" ng-model="hardware.HardwareID" />
+    <input class="form-control" ng-model="hardware.HardwareName" />
+    <input class="form-control" ng-model="hardware.Category" />
+    <input class="form-control" ng-model="hardware.Notes" />
+    <!--add list of FAQ's here-->
+    <!--add list of Documents here-->
+
+    <button ng-click="EditedHardware()">Save Changes</button>
 </div>

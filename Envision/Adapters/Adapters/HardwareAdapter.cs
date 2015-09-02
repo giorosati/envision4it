@@ -17,13 +17,22 @@ namespace Envision.Adapters.Adapters
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 model = db.Hardware.Where(x => x.DateDeleted == null).OrderBy(x => x.HardwareName).Select(x => new AdminHardwareVM()
+                {
+                    HardwareID = x.HardwareID,
+                    HardwareName = x.HardwareName,
+                    Notes = x.Notes,
+                    Category = x.Category,
+                    DateDeleted = x.DateDeleted,
+                    //add list of FAQ's here
+                    Faq = x.Faq.Select(f => new AdminFaqVM()
                     {
-                        HardwareID = x.HardwareID,
-                        HardwareName = x.HardwareName,
-                        Notes = x.Notes,
-                        Category = x.Category,
-                        DateDeleted = x.DateDeleted,
-                    }).ToList();
+                        FaqID = f.FaqID,
+                        HardwareID = f.HardwareID,
+                        Topic = f.Topic,
+                        Question = f.Question,
+                        Answer = f.Answer
+                    }).ToList(),
+                }).ToList();
             }
             return model;
         }
@@ -34,13 +43,13 @@ namespace Envision.Adapters.Adapters
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
                 model = db.Hardware.Where(x => x.HardwareID == id).Select(x => new AdminHardwareVM()
-                    {
-                        HardwareID = x.HardwareID,
-                        HardwareName = x.HardwareName,
-                        Notes = x.Notes,
-                        Category = x.Category,
-                        DateDeleted = x.DateDeleted,
-                    }).FirstOrDefault();
+                {
+                    HardwareID = x.HardwareID,
+                    HardwareName = x.HardwareName,
+                    Notes = x.Notes,
+                    Category = x.Category,
+                    DateDeleted = x.DateDeleted,
+                }).FirstOrDefault();
             }
             return model;
         }
