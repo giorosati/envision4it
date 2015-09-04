@@ -41,7 +41,7 @@
                 <table class="table table-responsive table-bordered">
                     <thead>
                         <tr style="background-color:#f1f1f1">
-                            <th>FaqID</th>
+                            <th>FAQ</th>
                             <th>Topic</th>
                             <th>Question</th>
                             <th>Answer</th>
@@ -73,11 +73,39 @@
                             <td ng-if="$even">
                                 <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Answer}}</a>
                             </td>
-
                         </tr>
                     </tbody>
                 </table>
                 </div>
+            <div ng-hide="{{h.Document[0]}}" style="color:grey; font-style:italic"">No Documents for this Hardware Item</div>
+            <div ng-show="{{h.Document[0]}}">
+                <div style="padding-top:10px">
+                    <table class="table table-responsive table-bordered">
+                        <thead>
+                            <tr style="background-color:#f1f1f1">
+                                <th>Document</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-responsive">
+                            <tr ng-repeat="d in h.Document">
+                                <td ng-if="$odd" style="background-color:#f1f1f1">
+                                    <a ng-href="#/EditDocument/{{d.DocumentID}}">{{d.Name}}</a>
+                                </td>
+                                <td ng-if="$even">
+                                    <a ng-href="#/EditFAQ/{{d.DocumentID}}">{{d.Name}}</a>
+                                </td>
+                                <td ng-if="$odd" style="background-color:#f1f1f1">
+                                    <a ng-href="#/EditFAQ/{{d.DocumentID}}">{{d.Description}}</a>
+                                </td>
+                                <td ng-if="$even">
+                                    <a ng-href="#/EditFAQ/{{d.DocumentID}}">{{d.Description}}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>
         </div>
     </div>
