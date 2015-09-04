@@ -37,47 +37,50 @@
             <div><strong>Hardware: </strong><a ng-href="#/EditHardware/{{h.HardwareID}}">{{h.HardwareName}}</a></div>
             <div><strong>Category: </strong>{{h.Category}}</div>
             <div><strong>Notes: </strong><br /> {{h.Notes}}</div>
-            <div style="padding-top:10px">
-                <table class="table table-responsive table-bordered">
-                    <thead>
-                        <tr style="background-color:#f1f1f1">
-                            <th>FAQ</th>
-                            <th>Topic</th>
-                            <th>Question</th>
-                            <th>Answer</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-responsive">
-                        <tr ng-repeat="f in h.Faq">
-                            <td ng-if="$odd" style="background-color:#f1f1f1">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.FaqID}}</a>
-                            </td>
-                            <td ng-if="$even">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.FaqID}}</a>
-                            </td>
-                            <td ng-if="$odd" style="background-color:#f1f1f1">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Topic}}</a>
-                            </td>
-                            <td ng-if="$even">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Topic}}</a>
-                            </td>
-                            <td ng-if="$odd" style="background-color:#f1f1f1">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Question}}</a>
-                            </td>
-                            <td ng-if="$even">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Question}}</a>
-                            </td>
-                            <td ng-if="$odd" style="background-color:#f1f1f1">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Answer}}</a>
-                            </td>
-                            <td ng-if="$even">
-                                <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Answer}}</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div ng-hide="{{h.Faq[0]}}" style="color:grey; font-style:italic">No FAQ's for this Hardware Item</div>
+            <div ng-show="{{h.Faq[0]}}">
+                <div style="padding-top:10px">
+                    <table class="table table-responsive table-bordered">
+                        <thead>
+                            <tr style="background-color:#f1f1f1">
+                                <th>FAQ</th>
+                                <th>Topic</th>
+                                <th>Question</th>
+                                <th>Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-responsive">
+                            <tr ng-repeat="f in h.Faq">
+                                <td ng-if="$odd" style="background-color:#f1f1f1">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.FaqID}}</a>
+                                </td>
+                                <td ng-if="$even">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.FaqID}}</a>
+                                </td>
+                                <td ng-if="$odd" style="background-color:#f1f1f1">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Topic}}</a>
+                                </td>
+                                <td ng-if="$even">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Topic}}</a>
+                                </td>
+                                <td ng-if="$odd" style="background-color:#f1f1f1">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Question}}</a>
+                                </td>
+                                <td ng-if="$even">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Question}}</a>
+                                </td>
+                                <td ng-if="$odd" style="background-color:#f1f1f1">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Answer}}</a>
+                                </td>
+                                <td ng-if="$even">
+                                    <a ng-href="#/EditFAQ/{{f.FaqID}}">{{f.Answer}}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            <div ng-hide="{{h.Document[0]}}" style="color:grey; font-style:italic"">No Documents for this Hardware Item</div>
+            </div>
+            <div ng-hide="{{h.Document[0]}}" style="color:grey; font-style:italic">No Documents for this Hardware Item</div>
             <div ng-show="{{h.Document[0]}}">
                 <div style="padding-top:10px">
                     <table class="table table-responsive table-bordered">
@@ -105,7 +108,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
             </div>
         </div>
     </div>
